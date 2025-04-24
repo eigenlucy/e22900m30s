@@ -1,4 +1,22 @@
-"""Brand new atopile project!"""
+import ElectricPower, Capacitor, Resistor
+from "spi.ato" import SPI
+from "e22900m30s.ato" import E22900M30S
 
 module App:
-    pass
+    lora = new E22900M30S
+
+    power = new ElectricPower
+    power ~ lora.power
+
+    spi = new SPI
+    spi ~ lora.spi
+
+    C1 = new Capacitor; C1.value = 10uF +/- 20%; C1.package = "C0805"
+    C1.power ~ power
+    C2 = new Capacitor; C2.value = 100nF +/- 20%; C2.package = "C0402"
+    C2.power ~ power
+
+    TX_pullup = new Resistor; TX_pullup.value = 50kohm +/- 20%; TX_pullup.package = "R0402"
+    power.vcc ~ TX_pullup.p1; TX_pullup.p2 ~ lora.TXEN
+    RX_pullup = new Resistor; RX_pullup.value = 50kohm +/- 20%; RX_pullup.package = "R0402"
+    power.vcc ~ RX_pullup.p1; RX_pullup.p2 ~ lora.RXEN

@@ -1,0 +1,46 @@
+import ElectricPower
+from "spi.ato" import SPI
+# Based on the SX1262
+# Full schematic and layout: https://github.com/S5NC/CDEBYTE_Modules
+# See SX1262 Datasheet for more details: https://www.mouser.com/datasheet/2/761/DS_SX1261-2_V1.1-1307803.pd
+
+component E22900M30S:
+    """Chengdu_Ebyte_Elec_Tech_E22_900M30S component"""
+    lcsc_id = "C411294"
+    manufacturer = "Chengdu Ebyte Elec Tech"
+    mpn = "E22-900M30S"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Chengdu-Ebyte-Elec-Tech-E22-900M30S_C411294.pdf"
+    designator_prefix = "U"
+
+    # pins
+    signal GND ~ pin 1
+    GND ~ pin 2
+    GND ~ pin 3
+    GND ~ pin 4
+    GND ~ pin 5
+    signal RXEN ~ pin 6 # Enable LoRa transmission, active low
+    signal TXEN ~ pin 7 # Enable LoRa transmission, active high
+    signal DIO2 ~ pin 8 # Configurable GPIO
+    signal VCC ~ pin 9
+    VCC ~ pin 10
+    GND ~ pin 11
+    GND ~ pin 12
+    signal DIO ~ pin 13 # Configurable GPIO
+    signal BUSY ~ pin 14 # RF Status Indicator
+    signal NRST ~ pin 15 # Reset trigger pin, active low
+    signal MISO ~ pin 16
+    signal MOSI ~ pin 17
+    signal SCK ~ pin 18
+    signal NSS ~ pin 19 # SPI CS
+    GND ~ pin 20
+    signal ANT ~ pin 21
+    GND ~ pin 22
+
+    power = new ElectricPower
+    power.gnd ~ GND; power.vcc ~ VCC
+
+    spi = new SPI
+    spi.mosi ~ MOSI
+    spi.miso ~ MISO
+    spi.sck ~ SCK
+    spi.cs ~ NSS

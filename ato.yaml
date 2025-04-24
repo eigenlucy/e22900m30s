@@ -9,15 +9,12 @@ builds:
   default:
     entry: main.ato:App
 
-# This metadata is only required for publishing
-# Uncomment it and fill out the fields to publish your package
-# package:
-#   identifier: # fill me!/e22900m30s
-#   repository: # fill me!
-#   version: "0.1.0"  # recommended first version
-#   authors:
-#     - name: lucy moglia
-#       email: eigenlucy@proton.me
-#   summary: # fill me!
-#   license: GNU General Public License v3
-#   homepage: # fill me!
+  identifier: eigenlucy/e22900m30s
+  repository: https://github.com/eigenlucy/e22900m30s.git
+  version: "0.1.0"
+  authors:
+    - name: lucy moglia
+      email: eigenlucy@proton.me
+  summary: E2290030MS 30dBm LoRa Module
+  license: GNU General Public License v3
+  homepage: https://hackaday.io/project/202604-femtofox-pro-tx-power-power-consumption-testing
