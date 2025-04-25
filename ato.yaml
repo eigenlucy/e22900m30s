@@ -9,6 +9,7 @@ builds:
   default:
     entry: main.ato:App
 
+package:
   identifier: eigenlucy/e22900m30s
   repository: https://github.com/eigenlucy/e22900m30s.git
   version: "0.1.0"
