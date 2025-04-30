@@ -2,7 +2,7 @@ import ElectricPower, Capacitor, Resistor
 from "spi.ato" import SPI
 from "e22900m30s.ato" import E22900M30S
 
-module App:
+module E22900M30S:
     lora = new E22900M30S
 
     power = new ElectricPower

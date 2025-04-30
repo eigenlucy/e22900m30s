@@ -7,7 +7,7 @@ paths:
 
 builds:
   default:
-    entry: main.ato:App
+    entry: main.ato:E2290030MS
 
 package:
   identifier: eigenlucy/e22900m30s
